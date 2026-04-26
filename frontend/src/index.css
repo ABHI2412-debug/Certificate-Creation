@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Restrict to greyscale palette */
+:root{
+  --bg: #ffffff; /* white */
+  --muted: #f5f5f5; /* gray-50 */
+  --panel: #f0f0f0; /* gray-100 */
+  --text: #111827; /* near-black */
+  --subtle: #6b7280; /* gray-500 */
+}
+
+body{background-color:var(--bg); color:var(--text)}
+/* small helpers */
+.btn{@apply px-4 py-2 rounded-md font-medium}
