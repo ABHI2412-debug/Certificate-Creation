@@ -11,6 +11,8 @@ export default function DarkModeToggle(){
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
       setIsDark(true)
       document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
     }
   }, [])
 
@@ -30,13 +32,13 @@ export default function DarkModeToggle(){
   return (
     <button
       onClick={toggleDarkMode}
-      className="relative inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 hover:bg-blue-100 transition-colors border border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+      className="relative inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 hover:bg-blue-100 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors border border-blue-200 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:ring-offset-2 dark:focus:ring-offset-slate-900"
       title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       <div className="relative">
         {/* Sun icon */}
         <svg
-          className={`w-6 h-6 text-blue-600 transition-all duration-300 ${
+          className={`w-6 h-6 text-blue-600 dark:text-blue-300 transition-all duration-300 ${
             isDark ? 'opacity-0 rotate-90 scale-0' : 'opacity-100 rotate-0 scale-100'
           }`}
           fill="none"
@@ -53,7 +55,7 @@ export default function DarkModeToggle(){
 
         {/* Moon icon */}
         <svg
-          className={`absolute top-0 left-0 w-6 h-6 text-blue-600 transition-all duration-300 ${
+          className={`absolute top-0 left-0 w-6 h-6 text-blue-600 dark:text-blue-300 transition-all duration-300 ${
             isDark ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-0'
           }`}
           fill="none"

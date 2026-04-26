@@ -14,3 +14,166 @@
 body{background-color:var(--bg); color:var(--text)}
 /* small helpers */
 .btn{@apply px-4 py-2 rounded-md font-medium}
+
+/* App-wide dark mode and "bubble" styling */
+.dark body {
+  background-color: #020617; /* slate-950 */
+  color: #e5e7eb; /* gray-200 */
+}
+
+/* Bubble containers in dark mode */
+.dark .bg-white,
+.dark .bg-gray-50,
+.dark .bg-gray-100 {
+  background-color: #0f172a !important; /* slate-900 */
+  border: 1px solid rgba(148, 163, 184, 0.25) !important; /* slate-400/25 */
+  border-radius: 1rem !important;
+  box-shadow:
+    0 10px 30px rgba(2, 6, 23, 0.55),
+    0 0 0 1px rgba(30, 41, 59, 0.5) inset !important;
+}
+
+/* Catch opacity variants like bg-white/80 used in cards */
+.dark [class*="bg-white/"],
+.dark [class*="bg-gray-50/"],
+.dark [class*="bg-gray-100/"] {
+  background-color: rgba(15, 23, 42, 0.92) !important;
+  border: 1px solid rgba(148, 163, 184, 0.3) !important;
+  border-radius: 1rem !important;
+  box-shadow:
+    0 14px 36px rgba(2, 6, 23, 0.62),
+    0 0 0 1px rgba(51, 65, 85, 0.55) inset !important;
+}
+
+/* Override light green/blue utility backgrounds commonly used across pages */
+.dark .bg-green-50,
+.dark .bg-green-100,
+.dark .bg-emerald-50,
+.dark .bg-blue-50,
+.dark .bg-blue-100,
+.dark .bg-indigo-50 {
+  background-color: #111827 !important; /* gray-900 */
+  border: 1px solid rgba(148, 163, 184, 0.25) !important;
+  border-radius: 1rem !important;
+  box-shadow:
+    0 10px 30px rgba(2, 6, 23, 0.55),
+    0 0 0 1px rgba(30, 41, 59, 0.5) inset !important;
+}
+
+/* Normalize light gradient sections in dark mode */
+.dark .bg-gradient-to-br,
+.dark .bg-gradient-to-r,
+.dark .bg-gradient-to-b,
+.dark [class*="from-green-"],
+.dark [class*="from-blue-"],
+.dark [class*="from-emerald-"],
+.dark [class*="to-white"],
+.dark [class*="to-green-"],
+.dark [class*="to-blue-"] {
+  --tw-gradient-from: #0f172a var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgb(2 6 23 / 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), #020617 var(--tw-gradient-via-position), var(--tw-gradient-to) !important;
+}
+
+/* Slightly different panel depth for softer visibility */
+.dark .bg-slate-800,
+.dark .bg-slate-900 {
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(2, 6, 23, 0.45);
+}
+
+/* Inputs/forms in dark mode */
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: #111827 !important; /* gray-900 */
+  color: #e5e7eb !important;
+  border-color: #334155 !important; /* slate-700 */
+  border-radius: 0.85rem !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #94a3b8 !important; /* slate-400 */
+}
+
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  outline: none;
+  border-color: #60a5fa !important; /* blue-400 */
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.25) !important;
+}
+
+/* Text color harmonization for gray utilities used throughout pages/components */
+.dark .text-gray-900 { color: #f3f4f6 !important; }
+.dark .text-gray-800 { color: #e5e7eb !important; }
+.dark .text-gray-700 { color: #d1d5db !important; }
+.dark .text-gray-600 { color: #9ca3af !important; }
+.dark .text-gray-500 { color: #94a3b8 !important; }
+
+/* Convert green/blue text shades to readable dark-mode tones */
+.dark .text-green-900,
+.dark .text-green-800,
+.dark .text-blue-900,
+.dark .text-blue-800,
+.dark .text-indigo-900 {
+  color: #ffffff !important;
+}
+
+.dark .text-green-700,
+.dark .text-green-600,
+.dark .text-blue-700,
+.dark .text-blue-600,
+.dark .text-indigo-700 {
+  color: #dbeafe !important; /* blue-100 */
+}
+
+.dark .text-green-500,
+.dark .text-blue-500 {
+  color: #bfdbfe !important; /* blue-200 */
+}
+
+/* Improve contrast for muted texts on dark cards */
+.dark .text-gray-400 { color: #cbd5e1 !important; } /* slate-300 */
+.dark .text-gray-300 { color: #e2e8f0 !important; } /* slate-200 */
+
+/* Dim decorative light overlays that wash out content */
+.dark .bg-green-200,
+.dark .bg-blue-200,
+.dark .bg-emerald-200 {
+  background-color: #1e293b !important; /* slate-800 */
+}
+
+.dark .opacity-10 {
+  opacity: 0.05 !important;
+}
+
+/* Borders and separators */
+.dark .border-gray-100,
+.dark .border-gray-200,
+.dark .border-gray-300 {
+  border-color: #334155 !important; /* slate-700 */
+}
+
+.dark .border-green-100,
+.dark .border-green-200,
+.dark .border-green-300,
+.dark .border-blue-100,
+.dark .border-blue-200,
+.dark .border-blue-300 {
+  border-color: #334155 !important;
+}
+
+/* Better table readability in dark mode */
+.dark table {
+  border-color: #334155;
+}
+
+.dark thead {
+  background-color: #111827 !important;
+}
+
+.dark tbody tr:hover {
+  background-color: rgba(30, 41, 59, 0.55) !important;
+}

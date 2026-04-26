@@ -32,6 +32,21 @@ export default function CertificateLogin() {
     if (error === "not_registered") {
       notifyError("You need to register first before logging in with Google!");
     }
+    if (error === "google_not_configured") {
+      notifyError("Google login is not configured on the server yet.");
+    }
+    if (error === "google_auth_failed") {
+      notifyError("Google authentication failed. Please try again.");
+    }
+    if (error === "auth_failed") {
+      notifyError("Google authentication returned an error.");
+    }
+    if (error === "no_user") {
+      notifyError("Google account could not be linked to a user.");
+    }
+    if (error === "token_failed") {
+      notifyError("Google login token generation failed.");
+    }
 
     if (token) {
       localStorage.setItem("token", token);

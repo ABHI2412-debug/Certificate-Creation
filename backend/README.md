@@ -5,11 +5,16 @@ Backend (Node/Express + Mongoose) - Quick start
    npm install
 
 2) Copy env example and update values:
-   cp .env.example .env
+   - Windows (PowerShell): copy .env.example .env
+   - macOS/Linux: cp .env.example .env
+   Required keys in .env:
    - MONGO_URI: your MongoDB connection URI
-   - JWT_SECRET, JWT_REFRESH_SECRET: strong secrets
+   - JWT_SECRET: strong secret for JWT signing
+   - SESSION_SECRET: strong secret for session middleware
+   - FRONTEND_URL: frontend URL (default: http://localhost:5173)
+   - PORT (optional): backend port (default: 5000)
+   - GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_CALLBACK_URL: required for "Continue with Google"
    - UPLOAD_DIR (optional): path to store generated certificates (default: ./uploads/certificates)
-   - FRONTEND_URL (optional): URL for QR verification (default: http://localhost:3000)
 
 3) Start server:
    npm run dev  # dev uses nodemon

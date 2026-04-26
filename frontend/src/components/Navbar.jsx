@@ -59,7 +59,7 @@ export default function Navbar(){
       <div className="relative">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 text-blue-700 hover:bg-blue-50 hover:text-blue-900"
+          className="px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 text-blue-700 dark:text-blue-200 hover:bg-blue-50 dark:hover:bg-slate-800 hover:text-blue-900 dark:hover:text-blue-100"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={icon} />
@@ -71,7 +71,7 @@ export default function Navbar(){
         </button>
 
         {isOpen && (
-          <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-50">
+          <div className="absolute top-full left-0 mt-1 w-56 bg-white dark:bg-slate-900 rounded-lg shadow-lg border border-gray-200 dark:border-slate-700 py-1 z-50">
             {items.map((item) => (
               <Link
                 key={item.path}
@@ -79,8 +79,8 @@ export default function Navbar(){
                 onClick={() => setIsOpen(false)}
                 className={`block px-4 py-2 text-sm transition-colors flex items-center gap-2 ${
                   location.pathname === item.path
-                    ? 'bg-blue-50 text-blue-700'
-                    : 'text-gray-700 hover:bg-gray-50 hover:text-blue-700'
+                    ? 'bg-blue-50 dark:bg-slate-800 text-blue-700 dark:text-blue-200'
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-blue-700 dark:hover:text-blue-200'
                 }`}
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -96,19 +96,19 @@ export default function Navbar(){
   }
 
   return (
-    <header className="w-full border-b border-green-200 bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+    <header className="w-full border-b border-green-200 dark:border-slate-700 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50 transition-colors">
       <div className="max-w-7xl mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-green-600 dark:bg-green-500 rounded-lg flex items-center justify-center">
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
             <div>
-              <div className="text-xl font-bold text-green-900">Certificate Portal</div>
-              <div className="text-sm text-green-600">Admin Panel</div>
+              <div className="text-xl font-bold text-green-900 dark:text-green-100">Certificate Portal</div>
+              <div className="text-sm text-green-600 dark:text-green-300">Admin Panel</div>
             </div>
           </div>
 
@@ -192,7 +192,7 @@ export default function Navbar(){
                   className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 ${
                     location.pathname === '/profile'
                       ? 'bg-blue-600 text-white'
-                      : 'text-blue-700 hover:bg-blue-50 hover:text-blue-900'
+                      : 'text-blue-700 dark:text-blue-200 hover:bg-blue-50 dark:hover:bg-slate-800 hover:text-blue-900 dark:hover:text-blue-100'
                   }`}
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -200,7 +200,7 @@ export default function Navbar(){
                   </svg>
                   Profile
                 </Link>
-                <span className="text-sm text-gray-700">Welcome, {user?.name || 'User'}</span>
+                <span className="text-sm text-gray-700 dark:text-gray-300">Welcome, {user?.name || 'User'}</span>
                 <button
                   onClick={logout}
                   className="px-4 py-2 bg-red-600 text-white rounded-lg text-sm font-medium hover:bg-red-700 transition-colors"
@@ -215,7 +215,7 @@ export default function Navbar(){
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100"
+              className="lg:hidden p-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-800"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
@@ -226,7 +226,7 @@ export default function Navbar(){
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
+          <div className="lg:hidden mt-4 pb-4 border-t border-gray-200 dark:border-slate-700 pt-4">
             <div className="space-y-2">
               {isAuthenticated && (
                 <>
@@ -253,7 +253,7 @@ export default function Navbar(){
                       className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 ${
                         location.pathname === item.path
                           ? 'bg-blue-600 text-white'
-                          : 'text-blue-700 hover:bg-blue-50 hover:text-blue-900'
+                          : 'text-blue-700 dark:text-blue-200 hover:bg-blue-50 dark:hover:bg-slate-800 hover:text-blue-900 dark:hover:text-blue-100'
                       }`}
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -271,7 +271,7 @@ export default function Navbar(){
                       className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 ${
                         location.pathname === item.path
                           ? 'bg-blue-600 text-white'
-                          : 'text-blue-700 hover:bg-blue-50 hover:text-blue-900'
+                          : 'text-blue-700 dark:text-blue-200 hover:bg-blue-50 dark:hover:bg-slate-800 hover:text-blue-900 dark:hover:text-blue-100'
                       }`}
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -289,7 +289,7 @@ export default function Navbar(){
                       className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 ${
                         location.pathname === item.path
                           ? 'bg-blue-600 text-white'
-                          : 'text-blue-700 hover:bg-blue-50 hover:text-blue-900'
+                          : 'text-blue-700 dark:text-blue-200 hover:bg-blue-50 dark:hover:bg-slate-800 hover:text-blue-900 dark:hover:text-blue-100'
                       }`}
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -307,7 +307,7 @@ export default function Navbar(){
                       className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 ${
                         location.pathname === item.path
                           ? 'bg-blue-600 text-white'
-                          : 'text-blue-700 hover:bg-blue-50 hover:text-blue-900'
+                          : 'text-blue-700 dark:text-blue-200 hover:bg-blue-50 dark:hover:bg-slate-800 hover:text-blue-900 dark:hover:text-blue-100'
                       }`}
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -317,8 +317,8 @@ export default function Navbar(){
                     </Link>
                   ))}
 
-                  <div className="border-t border-gray-200 pt-2 mt-4">
-                    <div className="px-4 py-2 text-sm text-gray-700">
+                  <div className="border-t border-gray-200 dark:border-slate-700 pt-2 mt-4">
+                    <div className="px-4 py-2 text-sm text-gray-700 dark:text-gray-300">
                       Welcome, {user?.name || 'User'}
                     </div>
                     <button
@@ -342,7 +342,7 @@ export default function Navbar(){
                   className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 ${
                     location.pathname === item.path
                       ? 'bg-blue-600 text-white'
-                      : 'text-blue-700 hover:bg-blue-50 hover:text-blue-900'
+                      : 'text-blue-700 dark:text-blue-200 hover:bg-blue-50 dark:hover:bg-slate-800 hover:text-blue-900 dark:hover:text-blue-100'
                   }`}
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

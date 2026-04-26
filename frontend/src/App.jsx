@@ -53,7 +53,7 @@ function App() {
     <AuthProvider>
       <Router>
         <RoutePersistence />
-        <div className="min-h-screen bg-gradient-to-br from-green-50 to-white text-gray-900 flex flex-col">
+        <div className="min-h-screen bg-gradient-to-br from-green-50 to-white text-gray-900 dark:from-slate-900 dark:to-slate-950 dark:text-gray-100 flex flex-col transition-colors duration-300">
           <Navbar />
 
           {/* Toast Notifications */}
